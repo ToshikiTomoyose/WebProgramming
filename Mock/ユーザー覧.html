@@ -16,11 +16,45 @@
             <input type="text" name="名前"></p>
             <p align="left">ユーザー名　<input type="text" name="名前"></p>
         
-            <p>生年月日
-                <select name="year">
-                <option value="1900">1900</option>
-                <option value="2300">2300</option>
-              </select></p>
+            <form action="xxx.php" method="post">
+                <label>生年月日　　
+                  <input type="date" name="date">～<input type="date" name="date"></label>
+                	<input type="submit" value="送信">
+            </form>
+       <table class="table table-bordered "> 
+    <tr>
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@TwBootstrap</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
