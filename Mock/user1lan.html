@@ -1,29 +1,36 @@
 <!doctype html>
 <html>
     <head>
-     	<!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="userlan.css">
-        
-        <title>Userguide</title>
+    <meta charset="utf-8">
+    <title>user1lan</title>
+    
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="userlan.css">
+    
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="userlan.css">
+    
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
     </head>
-     
+    
     <body>
-        <header class="text-right">ユーザ名<p class="text-right"><a href="login.html">ログアウト</a><br></p></header>
+        <header class="text-right">ユーザ名&nbsp;<p class="text-right"><a href="login.html">ログアウト&nbsp;</a></p></header>
+        
+        <div align="right"> <a href="useradd.html">新規登録&nbsp;</a></div>
         <h1 align="center">ユーザー覧</h1>
         	
             <p align=>&nbsp;</p>
-            <p align="left">ログインID　 
+            <p class="text-left">&nbsp;ログインID　 
             <input type="text" name="名前"></p>
             
-            <p>ユーザー名
+            <p class="text-left">&nbsp;ユーザ名　　 
             <input type="text" name="名前"></p>
             
             <form action="xxx.php" method="post">
-                <label>生年月日　　
+                <label>&nbsp;生年月日　　
                   <input type="date" name="date">～<input type="date" name="date"></label>
                 	<input type="submit" value="検索">
             </form>
@@ -36,7 +43,7 @@
               <th width="10%"><div align="center">ログインid</div></th>
               <th width="24%"><div align="center">ユーザ名</div></th>
               <th width="29%">生年月日</th>
-              <th width="37%">&nbsp;</th>
+              
         	</tr>
            </thead>
               <tbody>
@@ -45,9 +52,9 @@
                       <td>田中太郎</td>
                       <td>1989年04月26日</td>
                       <td>
-                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
-                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
-                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
+                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
+                        <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
+                        <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
                       </td>
                 </tr>
                 <tr>
@@ -55,31 +62,30 @@
                       <td>佐藤二朗</td>
                       <td>2001年11月12日</td>
                       <td>
-                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
-                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
-                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
-                      </td>
+                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
+                        <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
+                        <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
                 </tr>
                 <tr>
                       <th scope="row">id003</th>
                       <td>佐川真司</td>
                       <td>2000年01月01日</td>
                       <td>
-                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
-                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
-                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
+                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
+                        <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
+                        <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
                       </td>
                 </tr>
-                <tr>
-                	
-                </tr>
+               
               </tbody>
     		  </table>
+           </div>
+        </div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-     	<div align="left"></div>
+     	
     </body>
 </html>
