@@ -6,12 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="userlan.css">
+        
         <title>Userguide</title>
     </head>
      
     <body>
+        <header class="text-right">ユーザ名<p class="text-right"><a href="login.html">ログアウト</a><br></p></header>
         <h1 align="center">ユーザー覧</h1>
-        	<p align="right">新規登録</p>
         	
             <p align=>&nbsp;</p>
             <p align="left">ログインID　 
@@ -23,7 +25,7 @@
             <form action="xxx.php" method="post">
                 <label>生年月日　　
                   <input type="date" name="date">～<input type="date" name="date"></label>
-                	<input type="submit" value="送信">
+                	<input type="submit" value="検索">
             </form>
             
        <div class="container">
@@ -43,9 +45,9 @@
                       <td>田中太郎</td>
                       <td>1989年04月26日</td>
                       <td>
-                        <button type="button" class="btn btn-default">詳細</button>
-                        <button type="button" class="btn btn-primary">更新</button>
-                        <button type="button" class="btn btn-danger">削除</button>
+                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
+                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
+                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
                       </td>
                 </tr>
                 <tr>
@@ -53,9 +55,9 @@
                       <td>佐藤二朗</td>
                       <td>2001年11月12日</td>
                       <td>
-                        <button type="button" class="btn btn-default">詳細</button>
-                        <button type="button" class="btn btn-primary">更新</button>
-                        <button type="button" class="btn btn-danger">削除</button>
+                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
+                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
+                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
                       </td>
                 </tr>
                 <tr>
@@ -63,9 +65,9 @@
                       <td>佐川真司</td>
                       <td>2000年01月01日</td>
                       <td>
-                        <button type="button" class="btn btn-default">詳細</button>
-                        <button type="button" class="btn btn-primary">更新</button>
-                        <button type="button" class="btn btn-danger">削除</button>
+                        <button type="button" class="btn btn-default"><a href="userguide.html">詳細</a></button>
+                        <button type="button" class="btn btn-primary"><a href="user.html">更新</a></button>
+                        <button type="button" class="btn btn-danger"><a href="userdelete.html">削除</a></button>
                       </td>
                 </tr>
                 <tr>
