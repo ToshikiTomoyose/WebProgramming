@@ -1,10 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 
-header{
-	background-color:#8b968d;
+section{
+	background-color:#b9d08b;
 }
-/*
-div{
-	background-color:#CCC;
-}*/
+body{background-color: #c3d1a7;}
+
