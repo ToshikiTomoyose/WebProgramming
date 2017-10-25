@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Loginbean;
+
 /**
  * Servlet implementation class Login
  */
@@ -37,7 +39,13 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		Loginbean loginbean = new Loginbean("","");
+
+		 request.setAttribute("loginbean", loginbean);
+		 Loginbean lob =(Loginbean)request.getAttribute("loginbean");
+
+			 RequestDispatcher dispatcher =
+		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 		 dispatcher.forward(request, response);
 
 //		doGet(request, response);
