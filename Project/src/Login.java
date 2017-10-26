@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Loginbean;
-
 /**
  * Servlet implementation class Login
  */
@@ -30,8 +28,9 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher dispatcher =
+				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+				 dispatcher.forward(request, response);
 	}
 
 	/**
@@ -39,14 +38,11 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Loginbean loginbean = new Loginbean("","");
+		 String name = request.getParameter("name");
+	        String gender = request.getParameter("gender");
 
-		 request.setAttribute("loginbean", loginbean);
-		 Loginbean lob =(Loginbean)request.getAttribute("loginbean");
-
-			 RequestDispatcher dispatcher =
-		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-		 dispatcher.forward(request, response);
+		System.out.println();
+		System.out.println();
 
 //		doGet(request, response);
 	}
