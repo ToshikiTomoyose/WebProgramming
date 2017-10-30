@@ -22,16 +22,16 @@
 
 		    <body>
 		       <body style="font-family: 'ＭＳ 明朝'">
-		        <form action="/UserManagement/WEB-INF/jsp/login.jsp" method="post">
+		        <form action="Login" method="post">
 
 		            <p align="center">&nbsp;</p>
 		            <h1 class="text-center">ログイン画面</h1>
 		                <p align="center">&nbsp;</p>
-		                <p align="center">ログインID　<input type="text" name="ID"></p>
+		                <p align="center">ログインID　<input type="text" name="id"></p>
 		                <p align="center">パスワード　<input type="text" name="pass"></p>
 		                    <p align="center">&nbsp;</p>
 		                <p align="center">
-		                	<a align="center" class="btn btn-info btn-lg" href="user1lan.html" role="button">ログイン</a>
+		                	<input type="submit" value="ログイン" class="btn btn-info btn-lg">
 		                </p>
                 </form>
 	        </body>

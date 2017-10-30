@@ -38,13 +38,14 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 String name = request.getParameter("name");
-	        String gender = request.getParameter("gender");
+		request.setCharacterEncoding("UTF-8");
 
-		System.out.println();
-		System.out.println();
+        String id = request.getParameter("id");
+        String pass = request.getParameter("pass");
 
-//		doGet(request, response);
+		System.out.println(id);
+		System.out.println(pass);
+
 	}
 
 }
