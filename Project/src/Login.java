@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.UserDao;
+import model.Userbean;
 
 /**
  * Servlet implementation class Login
@@ -19,6 +21,7 @@ public class Login extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
+
     public Login() {
         super();
         // TODO Auto-generated constructor stub
@@ -45,6 +48,22 @@ public class Login extends HttpServlet {
 
 		System.out.println(id);
 		System.out.println(pass);
+
+		UserDao dao = new UserDao();
+		Userbean ub = dao.findByLoginId(id, pass);
+
+		if(ub == null) {
+			String msg = "エラー！";
+			request.setAttribute("errMsg", msg);
+
+
+			RequestDispatcher dispatcher =
+					request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+					 dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("UserList");
+		}
+
 
 	}
 

@@ -1,14 +1,13 @@
 package DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-//import dao.DBManager;
-//import model.Employee_bean;
 import model.Userbean;
 
 public class UserDao {
@@ -32,9 +31,7 @@ public class UserDao {
             while (rs.next()) {
                 String id = rs.getString("id");
                 String pass = rs.getString("pass");
-//                int age = rs.getInt("age");
-                Userbean employee = new Userbean(id, pass);
-                uselist.add(employee);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,4 +49,46 @@ public class UserDao {
         }
         return uselist;
     }
+
+	public Userbean findByLoginId(String loginId, String pass) {
+		   Connection conn = null;
+		   Userbean userbean = new Userbean();
+
+	        try {
+	            // データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            // SELECT文を準備
+	            String sql = "SELECT * FROM usermanagement where login_id = ? and password = ?";
+
+        		PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, loginId);
+	            pStmt.setString(2, pass);
+	            ResultSet rs = pStmt.executeQuery();
+
+	            while (rs.next()) {
+	                String loginid = rs.getString("login_id");
+	                String name = rs.getString("password");
+
+	                userbean.setLogin_id(loginid);
+	                userbean.setPass(pass);
+
+	                return userbean;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return null;
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                    return null;
+	                }
+	            }
+	        }
+	        return null;
+	}
 }

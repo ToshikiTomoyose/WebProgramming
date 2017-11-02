@@ -31,5 +31,18 @@ VALUES (
   , now()
 ); 
 
+USE testjavasql;
 
+CREATE TABLE ACCOUNT (
+	USER_ID char(10) PRIMARY KEY,
+	PASS varchar(10) not null,
+	MAIL varchar(100) not null,
+	NAME varchar(10) not null,
+	AGE int not null
+	);
 
+INSERT INTO ACCOUNT 
+	(USER_ID,PASS,MAIL,NAME,AGE)
+	VALUES (
+		'test','1234','test@.com','テスト男',99
+	);

@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 
+
 public class Userbean implements Serializable {
 	private String id;
 	private String login_id;
@@ -12,6 +13,18 @@ public class Userbean implements Serializable {
 	private String update_date;
 
 	public Userbean() {
+	}
+
+	public Userbean(String id, String login_id, String name, String birth_date, String pass, String create_date,
+			String update_date) {
+		super();
+		this.id = id;
+		this.login_id = login_id;
+		this.name = name;
+		this.birth_date = birth_date;
+		this.pass = pass;
+		this.create_date = create_date;
+		this.update_date = update_date;
 	}
 
 	public Userbean(String id,String pass) {
