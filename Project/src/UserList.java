@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class User1lan
  */
-@WebServlet("/User1lan")
-public class User1lan extends HttpServlet {
+@WebServlet("/UserList")
+public class UserList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public User1lan() {
+    public UserList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,14 @@ public class User1lan extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println(1111);
+
+
+
+
+
 		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+				request.getRequestDispatcher("/WEB-INF/jsp/user1lan.jsp");
 				 dispatcher.forward(request, response);
 	}
 
