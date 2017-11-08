@@ -20,7 +20,7 @@ public class UserDao {
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            String sql = "SELECT id, pass FROM User";
+            String sql = "SELECT id, pass FROM usermanagement";
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();

@@ -1,21 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+
 <!doctype html>
 <html>
     <head>
     <meta charset="utf-8">
     <title>user1lan</title>
-    
+
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="userlan.css">
-    
+
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="userlan.css">
-    
+
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
     </head>
-    
+
     <body>
         <body style="font-family: 'ＭＳ 明朝'">
 
@@ -28,10 +31,10 @@
             <h1 align="center">ユーザ一覧</h1>
             <div class="container">
                 <p align="center"> &nbsp;</p>
-                <p class="text-left">&nbsp;ログインID　 
+                <p class="text-left">&nbsp;ログインID　
                 <input type="text" name="名前"></p>
 
-                <p class="text-left">&nbsp;ユーザ名　　 
+                <p class="text-left">&nbsp;ユーザ名　　
                 <input type="text" name="名前"></p>
 
                 <form action="xxx.php" method="post">
@@ -42,7 +45,7 @@
 
 
                 <div class="table-responsive">
-                    <table class="table table-bordered "> 
+                    <table class="table table-bordered ">
                         <thead>
                             <tr>
                                 <th width="10%"><div align="center">ログインid</div></th>
@@ -95,12 +98,12 @@
                 </div>
             </div>
         </body>
-        
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-        
+
     </body>
 </html>

@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -8,21 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.UserDao;
-import model.Userbean;
-
 /**
- * Servlet implementation class Login
+ * Servlet implementation class User1lan
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/User1lan")
+public class User1lan extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-
-    public Login() {
+    public User1lan() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,6 +28,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 				 dispatcher.forward(request, response);
@@ -40,33 +38,9 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub]
 		request.setCharacterEncoding("UTF-8");
-
-        String id = request.getParameter("id");
-        String pass = request.getParameter("pass");
-
-		System.out.println(id);
-		System.out.println(pass);
-
-		UserDao dao = new UserDao();
-		Userbean ub = dao.findByLoginId(id, pass);
-
-		if(ub == null) {
-			String msg = "エラー！";
-			request.setAttribute("errMsg", msg);
-
-			RequestDispatcher dispatcher =
-					request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-					 dispatcher.forward(request, response);
-
-		} else {
-//			response.sendRedirect("/WEB-INF/jsp/user1lan.jsp");
-			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/jsp/user1lan.jsp");
-			dispatch.forward(request, response);
-		}
-
-
+		doGet(request, response);
 	}
 
 }

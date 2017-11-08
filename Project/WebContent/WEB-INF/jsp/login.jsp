@@ -33,10 +33,12 @@
 		                <p align="center">ログインID　<input type="text" name="id"></p>
 		                <p align="center">パスワード　<input type="text" name="pass"></p>
 		                    <p align="center">&nbsp;</p>
-		                <p align="center">
-		                	<input type="submit" value="ログイン" class="btn btn-info btn-lg">
-		                </p>
-                </form>
+
+			                <p align="center">
+			                	<input type="submit" value="ログイン" class="btn btn-info btn-lg">
+			                </p>
+		                </form>
+
 	        </body>
 		        <!-- Optional JavaScript -->
 		    	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
