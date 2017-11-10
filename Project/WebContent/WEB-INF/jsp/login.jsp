@@ -37,7 +37,7 @@
 			                <p align="center">
 			                	<input type="submit" value="ログイン" class="btn btn-info btn-lg">
 			                </p>
-		                </form>
+                </form>
 
 	        </body>
 		        <!-- Optional JavaScript -->

@@ -5,7 +5,7 @@
 <html>
     <head>
     <meta charset="utf-8">
-    <title>user1lan</title>
+    <title>userlist</title>
 
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

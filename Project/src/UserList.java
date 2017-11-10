@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.UserListDAO;
+//import model.Userbean;
+
 /**
  * Servlet implementation class User1lan
  */
@@ -28,14 +31,9 @@ public class UserList extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(1111);
-
-
-
-
 
 		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/user1lan.jsp");
+				request.getRequestDispatcher("/WEB-INF/jsp/UserList.jsp");
 				 dispatcher.forward(request, response);
 	}
 
@@ -45,6 +43,12 @@ public class UserList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub]
 		request.setCharacterEncoding("UTF-8");
+
+        String id = request.getParameter("id");
+        String pass = request.getParameter("pass");
+
+        UserListDAO dao = new UserListDAO();
+//		Userbean ub = dao.findByLoginId(id, pass);
 		doGet(request, response);
 	}
 

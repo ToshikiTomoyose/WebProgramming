@@ -20,7 +20,7 @@ public class UserDao {
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            String sql = "SELECT id, pass FROM usermanagement";
+            String sql = "SELECT id, password FROM usermanagement";
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();
@@ -67,11 +67,11 @@ public class UserDao {
 	            ResultSet rs = pStmt.executeQuery();
 
 	            while (rs.next()) {
-	                String loginid = rs.getString("login_id");
-	                String name = rs.getString("password");
+	                String login_id = rs.getString("login_id");
+	                String password = rs.getString("password");
 
-	                userbean.setLogin_id(loginid);
-	                userbean.setPass(pass);
+	                userbean.setLogin_id(login_id);
+	                userbean.setPass(password);
 
 	                return userbean;
 	            }
