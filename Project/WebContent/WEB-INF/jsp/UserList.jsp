@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 
+<%@ page import="model.Userbean" %>
+<%@ page import="java.util.List" %>
+
 <!doctype html>
 <html>
     <head>
@@ -55,50 +58,27 @@
 
                             </tr>
                         </thead>
+<%
+List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");
+
+%>
+
+						<% for (Userbean userbean : ublist) {%>
                             <tbody>
-
-
-                            <tr>
-                                <th scope="row">id001</th>
-                                <td>田中太郎</td>
-                                <td>1989年04月26日</td>
+	                         <tr>
+                               <td><%= userbean.getLogin_id() %></td>
+                                <td><%= userbean.getName() %></td>
+                                <td><%= userbean.getBirth_date()%></td>
                                 <td>
                                     <div align="center">
-                                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
+                                        <a class="btn btn-info" href="Userguide?id=<%= userbean.getId() %>" role="button">詳細</a>
                                         <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
                                         <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
                                     </div>
                                 </td>
                             </tr>
-
-
-
-                            <tr>
-                                <th scope="row">id002</th>
-                                <td>佐藤二朗</td>
-                                <td>2001年11月12日</td>
-                                <td>
-                                    <div align="center">
-                                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
-                                        <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
-                                        <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">id003</th>
-                                <td>佐川真司</td>
-                                <td>2000年01月01日</td>
-                                <td>
-                                    <div align="center">
-                                        <a class="btn btn-info" href="userguide.html" role="button">詳細</a>
-                                        <a align="center" class="btn btn-primary" href="userup.html" role="button">更新</a>
-                                        <a align="center" class="btn btn-danger" href="userdelete.html" role="button">削除</a>
-                                    </div>
-                                </td>
-                            </tr>
-
                         </tbody>
+						<%} %>
                     </table>
                 </div>
             </div>

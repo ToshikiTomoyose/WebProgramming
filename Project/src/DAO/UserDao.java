@@ -13,14 +13,14 @@ import model.Userbean;
 public class UserDao {
 	public List<Userbean> findAll() {
         Connection conn = null;
-        List<Userbean> uselist = new ArrayList<Userbean>();
+        List<Userbean> userlist = new ArrayList<Userbean>();
 
         try {
             // データベースへ接続
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            String sql = "SELECT id, password FROM usermanagement";
+            String sql = "SELECT id, login_id, name, birth_date, password, create_date, update_date FROM usermanagement";
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();
@@ -30,7 +30,14 @@ public class UserDao {
             // Employeeインスタンスに設定し、ArrayListインスタンスに追加
             while (rs.next()) {
                 String id = rs.getString("id");
-                String pass = rs.getString("pass");
+                String login_id = rs.getString("login_id");
+                String name = rs.getString("name");
+                String birth_date = rs.getString("birth_date");
+                String pass = rs.getString("password");
+                String create_date = rs.getString("create_date");
+                String update_date = rs.getString("update_date");
+                Userbean usebean = new Userbean(id, login_id, name, birth_date, pass, create_date, update_date);
+                userlist.add(usebean);
 
             }
         } catch (SQLException e) {
@@ -47,7 +54,7 @@ public class UserDao {
                 }
             }
         }
-        return uselist;
+        return userlist;
     }
 
 	public Userbean findByLoginId(String loginId, String pass) {
@@ -91,4 +98,5 @@ public class UserDao {
 	        }
 	        return null;
 	}
+
 }
