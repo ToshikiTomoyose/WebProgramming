@@ -26,8 +26,6 @@ public class UserDao {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
-            // 結果表に格納されたレコードの内容を
-            // Employeeインスタンスに設定し、ArrayListインスタンスに追加
             while (rs.next()) {
                 String id = rs.getString("id");
                 String login_id = rs.getString("login_id");
@@ -98,5 +96,52 @@ public class UserDao {
 	        }
 	        return null;
 	}
+	
+	
+	public Userbean findByUserGuide(String loginId, String pass) {
+		   Connection conn = null;
+		   Userbean userbean = new Userbean();
 
+	        try {
+	            // データベースへ接続
+	            conn = DBManager.getConnection();
+
+	            // SELECT文を準備
+	            String sql = "SELECT * FROM usermanagement where login_id = ? and password = ?";
+
+     		PreparedStatement pStmt = conn.prepareStatement(sql);
+	            pStmt.setString(1, loginId);
+	            pStmt.setString(2, pass);
+	            ResultSet rs = pStmt.executeQuery();
+
+	            while (rs.next()) {
+	            	String id = rs.getString("id");
+	                String login_id = rs.getString("login_id");
+	                String name = rs.getString("name");
+	                String birth_date = rs.getString("birth_date");
+	                String Pass = rs.getString("password");
+	                String create_date = rs.getString("create_date");
+	                String update_date = rs.getString("update_date");
+
+	                userbean.setLogin_id(login_id);
+	                userbean.setPass(Pass);
+
+	                return userbean;
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	            return null;
+	        } finally {
+	            // データベース切断
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                    return null;
+	                }
+	            }
+	        }
+	        return null;
+	}
 }

@@ -58,10 +58,10 @@
 
                             </tr>
                         </thead>
-<%
-List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");
+						<%
+						List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");
 
-%>
+						%>
 
 						<% for (Userbean userbean : ublist) {%>
                             <tbody>

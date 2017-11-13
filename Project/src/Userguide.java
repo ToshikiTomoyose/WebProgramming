@@ -32,9 +32,7 @@ public class Userguide extends HttpServlet {
 
 		String id = request.getParameter("id");
 		System.out.println(id);
-		 request.setAttribute("", human);
-
-
+		 request.setAttribute("", );
 
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/userguide.jsp");
