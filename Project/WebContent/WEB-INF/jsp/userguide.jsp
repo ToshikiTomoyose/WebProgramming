@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
+<%@ page import="model.Userbean" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,6 +16,8 @@
     </head>
 
         <body>
+        <% Userbean ub = (Userbean) request.getAttribute("usguide"); %>
+
             <body style="font-family: 'ＭＳ 明朝'">
                 <section>
                     <div class="text-right">ユーザ名&nbsp;&nbsp;
@@ -24,7 +27,7 @@
                 <h1 align="center">ユーザ情報詳細参照</h1>
                 <div class="container" align="center">
                     <p align="center">&nbsp;</p>
-                    <dt>&nbsp;ログインID</dt>
+                    <dt>&nbsp;<%= ub.getLogin_id() %></dt>
                     <dd>&nbsp;id001</dd>
 
                     <p class="form-control-static static-padding">

@@ -96,9 +96,9 @@ public class UserDao {
 	        }
 	        return null;
 	}
-	
-	
-	public Userbean findByUserGuide(String loginId, String pass) {
+
+
+	public Userbean findByUserGuide(String login_Id, String pass) {
 		   Connection conn = null;
 		   Userbean userbean = new Userbean();
 
@@ -110,7 +110,7 @@ public class UserDao {
 	            String sql = "SELECT * FROM usermanagement where login_id = ? and password = ?";
 
      		PreparedStatement pStmt = conn.prepareStatement(sql);
-	            pStmt.setString(1, loginId);
+	            pStmt.setString(1, login_Id);
 	            pStmt.setString(2, pass);
 	            ResultSet rs = pStmt.executeQuery();
 
@@ -123,10 +123,15 @@ public class UserDao {
 	                String create_date = rs.getString("create_date");
 	                String update_date = rs.getString("update_date");
 
+	                userbean.setId(id);
 	                userbean.setLogin_id(login_id);
+	                userbean.setName(name);
+	                userbean.setBirth_date(birth_date);
 	                userbean.setPass(Pass);
-
+	                userbean.setCreate_date(create_date);
+	                userbean.setCreate_date(update_date);
 	                return userbean;
+
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
