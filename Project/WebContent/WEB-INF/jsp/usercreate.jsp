@@ -29,26 +29,31 @@
             </section>
 
             <h1 class="text-center">ユーザ新規登録</h1>
+            <p align = "center">${errMsg}</p>
             <dl class="form">
                 <p>&nbsp;</p>
                 <p class="text-center">ログインID　　　　　
-                <input type="text" name="ID"></p>
+                <input type="text" name="clogid"></p>
 
                 <p class="text-center">パスワード　　　　　
-                <input type="text" name="パス"></p>
+                <input type="text" name="cpass"></p>
 
                 <p class="text-center">パスワード（確認）　
-                <input type="text" name="パス確認"></p>
+                <input type="text" name="cpass"></p>
 
                 <p class="text-center">ユーザー名　　　　　
-                <input type="text" name="ユーザ名"></p>
+                <input type="text" name="cname"></p>
 
                 <p class="text-center">生年月日 　 	　　　　
-                <input type="text" name="生年月日"></p>
+                <input type="text" name="cbirthd"></p>
+
+                <!-- ↓作成した時間 -->
+                <input type="hidden" value="<%= System.currentTimeMillis() %>" name= "ccdate">
+
 
                 <p>&nbsp;</p>
                 <p class="text-center">
-                <a href="user1lan.html"><br><button class="btn btn-primary btn-lg ">登録</button></a></p>
+                <a href="UserList"><br><button class="btn btn-primary btn-lg" name ="submit">登録</button></a></p>
                 <p>&nbsp;</p>
             </dl>
 
