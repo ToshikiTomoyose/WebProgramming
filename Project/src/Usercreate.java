@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -8,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.UserDao;
-import model.Userbean;
-
 /**
- * Servlet implementation class Userguide
+ * Servlet implementation class Usercreate
  */
-@WebServlet("/Userguide")
-public class Userguide extends HttpServlet {
+@WebServlet("/Usercreate")
+public class Usercreate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Userguide() {
+    public Usercreate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +30,10 @@ public class Userguide extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		UserDao dao = new UserDao();
-		 String id = request.getParameter("id");
-		Userbean ub = dao.findByUserGuide(id);
-		request.setAttribute("ub", ub);
-//	確認用
-//		for (Userbean userbean : ublist) {
-//			System.out.println(userbean.getId());
-//		}
 
-				RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/userguide.jsp");
+		RequestDispatcher dispatcher =
+				request.getRequestDispatcher("/WEB-INF/jsp/usercreate.jsp");
 				 dispatcher.forward(request, response);
-
 	}
 
 	/**

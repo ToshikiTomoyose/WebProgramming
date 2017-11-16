@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ page import="model.Userbean" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,7 +17,8 @@
     </head>
 
         <body>
-        <% Userbean ub = (Userbean) request.getAttribute("usguide"); %>
+        <% Userbean ub = (Userbean)request.getAttribute("ub");
+		%>
 
             <body style="font-family: 'ＭＳ 明朝'">
                 <section>
@@ -27,27 +29,27 @@
                 <h1 align="center">ユーザ情報詳細参照</h1>
                 <div class="container" align="center">
                     <p align="center">&nbsp;</p>
-                    <dt>&nbsp;<%= ub.getLogin_id() %></dt>
-                    <dd>&nbsp;id001</dd>
+                    <dt>&nbsp;ユーザID</dt>
+                    <dd>&nbsp;<%= ub.getId() %></dd>
 
                     <p class="form-control-static static-padding">
                     <dt>&nbsp;ユーザ名</dt>
-                    <dd>&nbsp;田中太郎</dd>
+                    <dd>&nbsp;<%= ub.getName() %></dd>
 
                     <p class="form-control-static static-padding">
                     <dt>&nbsp;生年月日</dt>
-                    <dd>&nbsp;1989年4月28日</dd>
+                    <dd>&nbsp;<%= ub.getBirth_date() %></dd>
 
                     <p class="form-control-static static-padding">
                     <dt>&nbsp;登録日時</dt>
-                    <dd>&nbsp;1917年1月01日 10:33</dd>
+                    <dd>&nbsp;<%= ub.getCreate_date() %></dd>
 
                     <p class="form-control-static static-padding">
-                    <dt>&nbsp;生年月日</dt>
-                    <dd>&nbsp;2017年2月28日 5:06</dd></p>
+                    <dt>&nbsp;更新日時</dt>
+                    <dd>&nbsp;<%= ub.getUpdate_date() %></dd></p>
 
 
-                    <a href="user1lan.html">&nbsp;戻る</a>
+                    <a href="UserList?id=<%= ub.getId() %>">&nbsp;戻る</a>
 
                 </div>
             </body>

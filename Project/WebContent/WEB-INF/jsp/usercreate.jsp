@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+<%@ page import="model.Userbean" %>
+
 <!doctype html>
 <html>
     <head>
@@ -29,26 +33,26 @@
                 <p>&nbsp;</p>
                 <p class="text-center">ログインID　　　　　
                 <input type="text" name="ID"></p>
-                
+
                 <p class="text-center">パスワード　　　　　
                 <input type="text" name="パス"></p>
-                
+
                 <p class="text-center">パスワード（確認）　
                 <input type="text" name="パス確認"></p>
-                
+
                 <p class="text-center">ユーザー名　　　　　
                 <input type="text" name="ユーザ名"></p>
-                
+
                 <p class="text-center">生年月日 　 	　　　　
                 <input type="text" name="生年月日"></p>
-                
+
                 <p>&nbsp;</p>
                 <p class="text-center">
                 <a href="user1lan.html"><br><button class="btn btn-primary btn-lg ">登録</button></a></p>
                 <p>&nbsp;</p>
             </dl>
-            
-            <div class="text-center"><a href="login.html">&nbsp;戻る</a></div>
+
+            <div class="text-center"><a href="UserList">&nbsp;戻る</a></div>
 
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->

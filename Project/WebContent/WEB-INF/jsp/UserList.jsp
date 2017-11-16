@@ -30,7 +30,7 @@
                 <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p></div>
             </section>
 
-            <div align="right"> <a href="useradd.html">新規登録&nbsp;&nbsp;</a></div>
+            <div align="right"> <a href="Usercreate">新規登録&nbsp;&nbsp;</a></div>
             <h1 align="center">ユーザ一覧</h1>
             <div class="container">
                 <p align="center"> &nbsp;</p>

@@ -55,6 +55,7 @@ public class UserDao {
         return userlist;
     }
 
+
 	public Userbean findByLoginId(String loginId, String pass) {
 		   Connection conn = null;
 		   Userbean userbean = new Userbean();
@@ -74,7 +75,6 @@ public class UserDao {
 	            while (rs.next()) {
 	                String login_id = rs.getString("login_id");
 	                String password = rs.getString("password");
-
 	                userbean.setLogin_id(login_id);
 	                userbean.setPass(password);
 
@@ -98,45 +98,37 @@ public class UserDao {
 	}
 
 
-	public Userbean findByUserGuide(String login_Id, String pass) {
-		   Connection conn = null;
-		   Userbean userbean = new Userbean();
+	public Userbean findByUserGuide(String targetid) {
+	    Connection conn = null;
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
 
-	        try {
-	            // データベースへ接続
-	            conn = DBManager.getConnection();
+            // SELECT文を準備
+            String sql = "SELECT id, login_id, name, birth_date, password, create_date, update_date FROM usermanagement WHERE id = ?";
 
-	            // SELECT文を準備
-	            String sql = "SELECT * FROM usermanagement where login_id = ? and password = ?";
+             // SELECTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, targetid);
+            ResultSet rs = pStmt.executeQuery();
 
-     		PreparedStatement pStmt = conn.prepareStatement(sql);
-	            pStmt.setString(1, login_Id);
-	            pStmt.setString(2, pass);
-	            ResultSet rs = pStmt.executeQuery();
+             // 主キーに紐づくレコードは1件のみなので、rs.next()は1回だけ行う
+            if (!rs.next()) {
+                return null;
+            }
+            String id = rs.getString("id");
+            String login_id = rs.getString("login_id");
+            String name = rs.getString("name");
+            String birth_date = rs.getString("birth_date");
+            String pass = rs.getString("password");
+            String create_date = rs.getString("create_date");
+            String update_date = rs.getString("update_date");
+            return new Userbean(id, login_id, name, birth_date, pass, create_date, update_date);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
 
-	            while (rs.next()) {
-	            	String id = rs.getString("id");
-	                String login_id = rs.getString("login_id");
-	                String name = rs.getString("name");
-	                String birth_date = rs.getString("birth_date");
-	                String Pass = rs.getString("password");
-	                String create_date = rs.getString("create_date");
-	                String update_date = rs.getString("update_date");
-
-	                userbean.setId(id);
-	                userbean.setLogin_id(login_id);
-	                userbean.setName(name);
-	                userbean.setBirth_date(birth_date);
-	                userbean.setPass(Pass);
-	                userbean.setCreate_date(create_date);
-	                userbean.setCreate_date(update_date);
-	                return userbean;
-
-	            }
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            return null;
-	        } finally {
 	            // データベース切断
 	            if (conn != null) {
 	                try {
@@ -147,6 +139,6 @@ public class UserDao {
 	                }
 	            }
 	        }
-	        return null;
+
 	}
 }
