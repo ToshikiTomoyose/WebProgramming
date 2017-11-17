@@ -62,7 +62,7 @@ public class Login extends HttpServlet {
 
 		} else {
 			response.sendRedirect("UserList");
-//			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/jsp/user1lan.jsp");
+//			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/jsp/UserList");
 //			dispatch.forward(request, response);
 		}
 

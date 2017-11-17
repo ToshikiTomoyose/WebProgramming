@@ -33,7 +33,7 @@ public class Userguide extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		UserDao dao = new UserDao();
-		 String id = request.getParameter("id");
+		String id = request.getParameter("id");
 		Userbean ub = dao.findByUserGuide(id);
 		request.setAttribute("ub", ub);
 //	確認用

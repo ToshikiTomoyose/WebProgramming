@@ -29,8 +29,10 @@
             </section>
 
             <h1 class="text-center">ユーザ新規登録</h1>
+
             <p align = "center">${errMsg}</p>
-            <dl class="form">
+
+            <form action="Usercreate" method="post">
                 <p>&nbsp;</p>
                 <p class="text-center">ログインID　　　　　
                 <input type="text" name="clogid"></p>
@@ -45,17 +47,12 @@
                 <input type="text" name="cname"></p>
 
                 <p class="text-center">生年月日 　 	　　　　
-                <input type="text" name="cbirthd"></p>
+                <input type="date" name="cbirthd"></p>
 
-                <!-- ↓作成した時間 -->
-                <input type="hidden" value="<%= System.currentTimeMillis() %>" name= "ccdate">
-
-
-                <p>&nbsp;</p>
-                <p class="text-center">
-                <a href="UserList"><br><button class="btn btn-primary btn-lg" name ="submit">登録</button></a></p>
-                <p>&nbsp;</p>
-            </dl>
+                 <p align="center">
+			                	<input type="submit" value="新規登録" class="btn btn-primary btn-lg">
+               	</p>
+            </form>
 
             <div class="text-center"><a href="UserList">&nbsp;戻る</a></div>
 

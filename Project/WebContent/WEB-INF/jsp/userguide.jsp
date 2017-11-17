@@ -46,7 +46,7 @@
 
                     <p class="form-control-static static-padding">
                     <dt>&nbsp;更新日時</dt>
-                    <dd>&nbsp;<%= ub.getUpdate_date() %></dd></p>
+                    <dd>&nbsp;<%= ub.getUpdate_date() %></dd>
 
 
                     <a href="UserList?id=<%= ub.getId() %>">&nbsp;戻る</a>
