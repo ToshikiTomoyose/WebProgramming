@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+<%@ page import="model.Userbean" %>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -18,16 +22,22 @@
                     <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p>
                 </div>
             </section>
-            
+
             <h1 align="center">ユーザ削除確認</h1>
+			<% Userbean ub = (Userbean)request.getAttribute("ub");%>
+
+			<form action="UserDelete" method="post">
+            <input type="hidden" value="<%= ub.getId() %>" name = "delid">
+
             <p align="center">&nbsp;</p>
             <div align="center">
-                <p style="font-size: xx-large">ログインID : id0001</p>
+                <p style="font-size: xx-large">ログインID : <%= ub.getLogin_id() %></p>
+                <p>ログインID : <%= ub.getName() %></p>
+
                 <p>を本当に削除しても宜しいでしょうか。</p>
 
-
-                <a align="center" class="btn btn-info" href="user1lan.html" role="button">戻る</a>　　
-                <a align="center" class="btn btn-danger" href="user1lan.html" role="button">&nbsp;OK&nbsp;</a>
+                <a align="center"><a href="UserList">&nbsp;戻る</a></a>　　
+                <a align="center"> <input type="submit" value="削除" class="btn btn-info btn-lg"></a>
             </div>
 
             <!-- Optional JavaScript -->

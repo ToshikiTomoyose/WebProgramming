@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.UserDao;
-import model.Userbean;
-
 /**
- * Servlet implementation class UserUpdate
+ * Servlet implementation class UserDelete
  */
-@WebServlet("/UserUpdate")
-public class UserUpdate extends HttpServlet {
+@WebServlet("/UserDelete")
+public class UserDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserUpdate() {
+    public UserDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,16 +29,6 @@ public class UserUpdate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		UserDao dao = new UserDao();
-		String id = request.getParameter("id");
-		Userbean ub = dao.findByUserGuide(id);
-		request.setAttribute("ub", ub);
-
-		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
-				 dispatcher.forward(request, response);
-
 	}
 
 	/**
@@ -49,22 +36,9 @@ public class UserUpdate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-
-		UserDao dao = new UserDao();
-
-		String logid = request.getParameter("updlogid");
-		String name = request.getParameter("updname");
-		String birthdate = request.getParameter("updbirthd");
-		String pass = request.getParameter("updpass");
-		String update = request.getParameter("upddate");
-		String id =  request.getParameter("upid");
-
-//		System.out.println(id);
-
-		dao.UserUpdate(logid, name,  birthdate, pass, update, id);
-
-		 response.sendRedirect("UserList");
+		RequestDispatcher dispatcher =
+				request.getRequestDispatcher("/WEB-INF/jsp/userdelete.jsp");
+				 dispatcher.forward(request, response);
 	}
 
 }

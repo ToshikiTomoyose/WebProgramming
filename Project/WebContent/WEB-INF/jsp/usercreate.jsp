@@ -49,11 +49,13 @@
                 <p class="text-center">生年月日 　 	　　　　
                 <input type="date" name="cbirthd"></p>
 
-                 <p align="center">
-			                	<input type="submit" value="新規登録" class="btn btn-primary btn-lg">
+				<p>&nbsp;</p>
+                <p align="center">
+				<input type="submit" value="新規登録" class="btn btn-primary btn-lg">
                	</p>
             </form>
 
+			<p>&nbsp;</p>
             <div class="text-center"><a href="UserList">&nbsp;戻る</a></div>
 
             <!-- Optional JavaScript -->

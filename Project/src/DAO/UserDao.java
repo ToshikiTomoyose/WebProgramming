@@ -145,7 +145,6 @@ public class UserDao {
 
 	public void Usercreate(String clogid, String cname, String cbirthd, String cpass, String ccdate) {
 	        Connection conn = null;
-	        Userbean userbean = new Userbean();
 	        try {
 	            // データベースへ接続
 	        	conn = DBManager.getConnection();
@@ -177,6 +176,70 @@ public class UserDao {
 	                }
 	            }
 	        }
-
 	  }
+
+
+	public void UserUpdate(String updlogid, String updname, String updbirthd, String updpass, String upddate, String upid) {
+        Connection conn = null;
+        try {
+            // データベースへ接続、SELECT文で文字内のを呼び、書き換えるため次はUPDATE文を使いユーザ識別するためのWHERE文も使う
+        	conn = DBManager.getConnection();
+            // INSERT文を準備
+            String sql = "UPDATE usermanagement SET  login_id = ?, name = ?, birth_date = ?, password = ? WHERE id = ? ";
+
+         // SELECTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, updlogid);
+            pStmt.setString(2, updname);
+            pStmt.setString(3, updbirthd);
+            pStmt.setString(4, updpass);
+            pStmt.setString(5, upid);
+            int rs = pStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        }
+  }
+
+
+	public void UserDelete(String delid) {
+        Connection conn = null;
+        try {
+            // データベースへ接続、SELECT文で文字内のを呼び、書き換えるため次はUPDATE文を使いユーザ識別するためのWHERE文も使う
+        	conn = DBManager.getConnection();
+            // INSERT文を準備
+            String sql = "DELETE FROM usermanagement WHERE id = ? ";
+
+         // SELECTを実行し、結果表を取得
+            PreparedStatement pStmt = conn.prepareStatement(sql);
+            pStmt.setString(1, delid);
+            int rs = pStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        }
+  }
+
 }

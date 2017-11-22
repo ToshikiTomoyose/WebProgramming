@@ -1,24 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+<%@ page import="model.Userbean" %>
+<%@ page import="java.util.List" %>
+
+
 <!doctype html>
 <html>
     <head>
     <meta charset="utf-8">
     <title>ユーザー新規登録</title>
-    
+
     <!-- BootstrapのCSS読み込み -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="userlan.css">
-    
+
     <!-- jQuery読み込み -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="userlan.css">
-    
+
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
-    
-    
+
+
     </head>
-        
+
         <body>
+         <body>
+        <% Userbean ub = (Userbean)request.getAttribute("ub");
+		%>
+
             <body style="font-family: 'ＭＳ 明朝'">
                 <section>
                     <div class="text-right">ユーザ名&nbsp;&nbsp;
@@ -26,32 +36,43 @@
                     </div>
                 </section>
 
-                <div class="container" align="center">
-
+                <div align="center">
+				<form action="UserUpdate" method="post">
                     <h1 class="text-center">ユーザ情報更新</h1>
                     <p align="center">&nbsp;</p>
-                    
-                    <dt>&nbsp;ログインID</dt>
-                        <dd>&nbsp;<input type="text" value="id0001"></dd>
-                    <p class="form-control-static static-padding">
-                        
-                    <dt>&nbsp;パスワード</dt>
-                        <dd>&nbsp;<input type="text" value="pass"></dd>
-                    <p class="form-control-static static-padding">
-                        
-                    <dt>&nbsp;パスワード（確認）</dt>
-                        <dd>&nbsp;<input type="text" value="pass"></dd>
-                    <p class="form-control-static static-padding">
-                        
-                    <dt>&nbsp;ユーザ名</dt>
-                        <dd>&nbsp;<input type="text" value="田中太郎"></dd>
-                    <p class="form-control-static static-padding">
-                        
-                    <dt>&nbsp;生年月日</dt>
-                        <dd>&nbsp;<input type="date" name="date"></dd></p>
 
-                    <a href="user1lan.html">戻る</a>
-                </div>
+					<input type="hidden" value="<%= ub.getId() %>" name = "upid">
+
+                    <dt>&nbsp;ログインID</dt>
+                        <input type="text" value="<%= ub.getLogin_id() %>" name = "updlogid">
+                    <p class="form-control-static static-padding">
+
+                    <dt>&nbsp;パスワード</dt>
+                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "updpass">
+                    <p class="form-control-static static-padding">
+
+                    <dt>&nbsp;パスワード（確認）</dt>
+                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "updpass">
+                    <p class="form-control-static static-padding">
+
+                    <dt>&nbsp;ユーザ名</dt>
+                        &nbsp;<input type="text" value="<%= ub.getName() %>" name = "updname">
+                    <p class="form-control-static static-padding">
+
+                    <dt>&nbsp;生年月日</dt>
+                        &nbsp;<input type="date" value="<%= ub.getBirth_date() %>" name = "updbirthd">
+
+					<input type="hidden" value="<%= ub.getUpdate_date() %>" name = "upddate">
+
+					<p>&nbsp;</p>
+				 	<p align="center">
+					<input type="submit" value="更新" class="btn btn-primary btn-lg">
+               		</p>
+
+						</form>
+					<p>&nbsp;</p>
+                    <div class="text-center"><a href="UserList">&nbsp;戻る</a></div>
+					 </div>
                 <!-- Optional JavaScript -->
                 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
