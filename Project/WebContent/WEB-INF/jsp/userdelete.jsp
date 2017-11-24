@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ page import="model.Userbean" %>
+<%@ page import="java.util.List" %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -32,14 +33,14 @@
             <p align="center">&nbsp;</p>
             <div align="center">
                 <p style="font-size: xx-large">ログインID : <%= ub.getLogin_id() %></p>
-                <p>ログインID : <%= ub.getName() %></p>
+                <p>ログイン名 : <%= ub.getName() %></p>
 
                 <p>を本当に削除しても宜しいでしょうか。</p>
 
-                <a align="center"><a href="UserList">&nbsp;戻る</a></a>　　
-                <a align="center"> <input type="submit" value="削除" class="btn btn-info btn-lg"></a>
+                <a align="center"><a href="UserList" class="btn btn-info btn-lg">戻る</a></a>　　
+                <a align="center"> <input type="submit" value="削除" class="btn btn-danger btn-lg"></a>
             </div>
-
+			</form>
             <!-- Optional JavaScript -->
             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

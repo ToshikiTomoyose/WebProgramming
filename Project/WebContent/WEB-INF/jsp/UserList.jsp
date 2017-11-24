@@ -72,8 +72,8 @@
                                 <td>
                                     <div align="center">
                                         <a class="btn btn-info" href="Userguide?id=<%= userbean.getId() %>">詳細</a>
-                                        <a align="center" class="btn btn-primary" href="UserUpdate?id=<%= userbean.getId() %>">更新</a>
-                                        <a align="center" class="btn btn-danger" href="UserDelete?id=<%= userbean.getId() %>">削除</a>
+                                        <a class="btn btn-primary" href="UserUpdate?id=<%= userbean.getId() %>">更新</a>
+                                        <a class="btn btn-danger" href="UserDelete?id=<%= userbean.getId() %>">削除</a>
                                     </div>
                                 </td>
                             </tr>

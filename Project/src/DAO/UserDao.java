@@ -185,7 +185,7 @@ public class UserDao {
             // データベースへ接続、SELECT文で文字内のを呼び、書き換えるため次はUPDATE文を使いユーザ識別するためのWHERE文も使う
         	conn = DBManager.getConnection();
             // INSERT文を準備
-            String sql = "UPDATE usermanagement SET  login_id = ?, name = ?, birth_date = ?, password = ? WHERE id = ? ";
+            String sql = "UPDATE usermanagement SET  login_id = ?, name = ?, birth_date = ?, password = ?, update_date = now()  WHERE id = ? ";
 
          // SELECTを実行し、結果表を取得
             PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -213,7 +213,7 @@ public class UserDao {
   }
 
 
-	public void UserDelete(String delid) {
+	public Userbean UserDelete(String delid) {
         Connection conn = null;
         try {
             // データベースへ接続、SELECT文で文字内のを呼び、書き換えるため次はUPDATE文を使いユーザ識別するためのWHERE文も使う
@@ -240,6 +240,7 @@ public class UserDao {
                 }
             }
         }
+		return null;
   }
 
 }

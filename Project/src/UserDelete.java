@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.UserDao;
+import model.Userbean;
+
 /**
  * Servlet implementation class UserDelete
  */
@@ -27,8 +30,17 @@ public class UserDelete extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		UserDao dao = new UserDao();
+		String id = request.getParameter("id");
+		Userbean ub = dao.findByUserGuide(id);
+		request.setAttribute("ub", ub);
+
+		RequestDispatcher dispatcher =
+				request.getRequestDispatcher("/WEB-INF/jsp/userdelete.jsp");
+				 dispatcher.forward(request, response);
 	}
 
 	/**
@@ -36,9 +48,14 @@ public class UserDelete extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/userdelete.jsp");
-				 dispatcher.forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+		UserDao dao = new UserDao();
+		String delid = request.getParameter("delid");
+		Userbean ub = dao.UserDelete(delid);
+		request.setAttribute("ub", ub);
+
+
+		response.sendRedirect("UserList");
 	}
 
 }
