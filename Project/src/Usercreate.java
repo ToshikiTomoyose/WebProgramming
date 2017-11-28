@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -49,13 +48,22 @@ public class Usercreate extends HttpServlet {
 		String name = request.getParameter("cname");
 		String birthdate = request.getParameter("cbirthd");
 		String pass = request.getParameter("cpass");
+		String subpass = request.getParameter("conpass");
 		String createdate = request.getParameter("ccdate");
 
-		UserDao dao = new UserDao();
-		 dao.Usercreate(logid, name,  birthdate, pass, createdate);
+			if(pass.equals(subpass)) {
+				UserDao dao = new UserDao();
+				 dao.Usercreate(logid, name,  birthdate, pass, createdate);
+				 response.sendRedirect("UserList");
+			}else {
+				String msg = "エラー！";
+				request.setAttribute("errMsg", msg);
+				 RequestDispatcher dispatcher =
+							request.getRequestDispatcher("/WEB-INF/jsp/usercreate.jsp");
+							 dispatcher.forward(request, response);
 
-		 response.sendRedirect("UserList");
 
+			}
 	}
 
 }

@@ -20,7 +20,7 @@ public class UserDao {
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            String sql = "SELECT id, login_id, name, birth_date, password, create_date, update_date FROM usermanagement";
+            String sql = "SELECT id, login_id, name, birth_date, password, create_date, update_date FROM usermanagement ";
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();
@@ -75,8 +75,10 @@ public class UserDao {
 	            while (rs.next()) {
 	                String login_id = rs.getString("login_id");
 	                String password = rs.getString("password");
+	                String name = rs.getString("name");
 	                userbean.setLogin_id(login_id);
 	                userbean.setPass(password);
+	                userbean.setName(name);
 
 	                return userbean;
 	            }
@@ -243,4 +245,60 @@ public class UserDao {
 		return null;
   }
 
+
+
+	 public List<Userbean> FindbyUser(String targetName) {
+		        Connection conn = null;
+		        List<Userbean> userlist = new ArrayList<Userbean>();
+
+		        try {
+		            // データベースへ接続
+		            conn = DBManager.getConnection();
+
+
+//		            // SELECT文を準備
+//		            String sql = "SELECT * FROM usermanagement where login_id = ? and password = ?";
+//
+//	        		PreparedStatement pStmt = conn.prepareStatement(sql);
+//		            pStmt.setString(1, loginId);
+//		            pStmt.setString(2, pass);
+//		            ResultSet rs = pStmt.executeQuery();
+
+
+		            // SELECT文を準備　ｓｑｌを用いた探し方はｓｑｌを主に用いる
+		            String sql = "SELECT * FROM usermanagement where name LIKE  ?";
+
+		             // SELECTを実行し、結果表を取得
+		            PreparedStatement pStmt = conn.prepareStatement(sql);
+		            pStmt.setString(1, '%' + targetName + '%');
+		            ResultSet rs = pStmt.executeQuery();
+
+		            while (rs.next()) {
+		                String id = rs.getString("id");
+		                String login_id = rs.getString("login_id");
+		                String name = rs.getString("name");
+		                String birth_date = rs.getString("birth_date");
+		                String pass = rs.getString("password");
+		                String create_date = rs.getString("create_date");
+		                String update_date = rs.getString("update_date");
+		                Userbean usebean = new Userbean(id, login_id, name, birth_date, pass, create_date, update_date);
+		                userlist.add(usebean);
+
+		            }
+		        } catch (SQLException e) {
+		            e.printStackTrace();
+		            return null;
+		        } finally {
+		            // データベース切断
+		            if (conn != null) {
+		                try {
+		                    conn.close();
+		                } catch (SQLException e) {
+		                    e.printStackTrace();
+		                    return null;
+		                }
+		            }
+		        }
+		        return userlist;
+		    }
 }

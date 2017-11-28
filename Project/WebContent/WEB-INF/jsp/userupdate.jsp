@@ -21,14 +21,10 @@
     <!-- BootstrapのJS読み込み -->
     <script src="js/bootstrap.min.js"></script>
 
-
     </head>
 
         <body>
          <body>
-        <% Userbean ub = (Userbean)request.getAttribute("ub");
-		%>
-
             <body style="font-family: 'ＭＳ 明朝'">
                 <section>
                     <div class="text-right">ユーザ名&nbsp;&nbsp;
@@ -38,8 +34,11 @@
 
                 <div align="center">
 				<form action="UserUpdate" method="post">
+				<% Userbean ub = (Userbean)request.getAttribute("ub");%>
+
                     <h1 class="text-center">ユーザ情報更新</h1>
                     <p align="center">&nbsp;</p>
+                    <p align = "center">${errMsg}</p>
 
 					<input type="hidden" value="<%= ub.getId() %>" name = "upid">
 
@@ -52,7 +51,7 @@
                     <p class="form-control-static static-padding">
 
                     <dt>&nbsp;パスワード（確認）</dt>
-                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "updpass">
+                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "cupdpass">
                     <p class="form-control-static static-padding">
 
                     <dt>&nbsp;ユーザ名</dt>

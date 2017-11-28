@@ -41,7 +41,7 @@
                 <input type="text" name="cpass"></p>
 
                 <p class="text-center">パスワード（確認）　
-                <input type="text" name="cpass"></p>
+                <input type="text" name="conpass"></p>
 
                 <p class="text-center">ユーザー名　　　　　
                 <input type="text" name="cname"></p>

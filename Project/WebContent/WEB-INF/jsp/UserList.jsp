@@ -26,23 +26,25 @@
         <body style="font-family: 'ＭＳ 明朝'">
 
             <section>
-                <div class="text-right">ユーザ名&nbsp;&nbsp;
+            <%List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");%>
+			<%Userbean u =(Userbean)session.getAttribute("ub"); %>
+                <div class="text-right">ユーザ名 <%= u.getName() %> &nbsp;&nbsp;
                 <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p></div>
             </section>
 
             <div align="right"> <a href="Usercreate">新規登録&nbsp;&nbsp;</a></div>
             <h1 align="center">ユーザ一覧</h1>
+            <p align = "center">${errMsg}</p>
             <div class="container">
+            <form action="UserList" method="post">
                 <p align="center"> &nbsp;</p>
-                <p class="text-left">&nbsp;ログインID　
-                <input type="text" name="名前"></p>
+                <!--  <p class="text-left">&nbsp;ログインID　
+                <input type="text" name="名前"></p>-->
 
                 <p class="text-left">&nbsp;ユーザ名　　
-                <input type="text" name="名前"></p>
+                <input type="text" name="name"></p>
 
-                <form action="xxx.php" method="post">
-                    <label>&nbsp;生年月日　　
-                    <input type="date" name="date">～<input type="date" name="date"></label>
+
                     <input type="submit" value="検索">
                 </form>
 
@@ -59,9 +61,7 @@
                             </tr>
                         </thead>
 
-						<%
-						List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");
-						%>
+
 
 						<% for (Userbean userbean : ublist) {%>
                             <tbody>

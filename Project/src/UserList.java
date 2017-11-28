@@ -52,8 +52,27 @@ public class UserList extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
+		UserDao dao = new UserDao();
 
-		doGet(request, response);
+		String name = request.getParameter("name");
+		List<Userbean> ublist  =null;
+
+		if (name.length() == 0) {
+			ublist = dao.findAll();
+		} else {
+			ublist = dao.FindbyUser(name) ;
+		}
+
+		request.setAttribute("userlist", ublist);
+System.out.println(ublist);
+
+		RequestDispatcher dispatcher =
+				request.getRequestDispatcher("/WEB-INF/jsp/UserList.jsp");
+				 dispatcher.forward(request, response);
+//	確認用
+//		for (Userbean userbean : ublist) {
+//			System.out.println(userbean.getLogin_id());
+//		}
 	}
 
 }

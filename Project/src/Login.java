@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.UserDao;
 import model.Userbean;
@@ -61,6 +62,8 @@ public class Login extends HttpServlet {
 					 dispatcher.forward(request, response);
 
 		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("ub", ub);
 			response.sendRedirect("UserList");
 //			RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/jsp/UserList");
 //			dispatch.forward(request, response);
