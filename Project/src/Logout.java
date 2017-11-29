@@ -1,4 +1,5 @@
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,21 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DAO.UserDao;
-import model.Userbean;
-
 /**
- * Servlet implementation class Login
+ * Servlet implementation class Logout
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-
-    public Login() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,9 +29,16 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+		String msg = "ログアウトしました。";
+		request.setAttribute("logout", msg);
 		RequestDispatcher dispatcher =
 				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-				 dispatcher.forward(request, response);
+				dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
+		session.removeAttribute("ub");
+		response.sendRedirect("Login");
 
 	}
 
@@ -43,30 +47,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-
-        String id = request.getParameter("id");
-        String pass = request.getParameter("pass");
-
-//	確認	System.out.println(id);
-//		System.out.println(pass);
-
-		UserDao dao = new UserDao();
-		Userbean ub = dao.findByLoginId(id, pass);
-		HttpSession session = request.getSession();
-
-		if(ub == null) {
-			String msg = "入力されたIDまたはパスワードが異なります。";
-			request.setAttribute("errMsg", msg);
-
-			RequestDispatcher dispatcher =
-			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-			dispatcher.forward(request, response);
-			} else {
-				session.setAttribute("ub", ub);
-				response.sendRedirect("UserList");
-		}
-		 System.out.println(ub);
+		doGet(request, response);
 	}
 
 }

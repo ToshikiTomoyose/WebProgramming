@@ -27,8 +27,8 @@
 
 		            <p align="center">&nbsp;</p>
 		            <h1 class="text-center">ログイン画面</h1>
-		            <p align = "center">${errMsg}</p>
-
+		            <p align = "center" ><font color="red">${errMsg}</font></p>
+					<p align = "center" ><font color="green">${logout}</font></p>
 		                <p align="center">&nbsp;</p>
 		                <p align="center">ログインID　<input type="text" name="id"></p>
 		                <p align="center">パスワード　<input type="text" name="pass"></p>

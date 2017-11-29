@@ -28,8 +28,8 @@
             <section>
             <%List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");%>
 			<%Userbean u =(Userbean)session.getAttribute("ub"); %>
-                <div class="text-right">ユーザ名 <%= u.getName() %> &nbsp;&nbsp;
-                <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p></div>
+                <div class="text-right">ユーザ名 <%=u.getName() %> &nbsp;&nbsp;
+                <p><a href="Logout">ログアウト&nbsp;&nbsp;<br></a></p></div>
             </section>
 
             <div align="right"> <a href="Usercreate">新規登録&nbsp;&nbsp;</a></div>

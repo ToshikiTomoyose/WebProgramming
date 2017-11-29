@@ -1,5 +1,9 @@
 package DAO;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.bind.DatatypeConverter;
 
 import model.Userbean;
 
@@ -69,7 +75,9 @@ public class UserDao {
 
         		PreparedStatement pStmt = conn.prepareStatement(sql);
 	            pStmt.setString(1, loginId);
-	            pStmt.setString(2, pass);
+	            String source = convertPass(pass) ;
+	            pStmt.setString(2, source);
+	            System.out.println(source);
 	            ResultSet rs = pStmt.executeQuery();
 
 	            while (rs.next()) {
@@ -159,7 +167,8 @@ public class UserDao {
 	            pStmt.setString(1, clogid);
 	            pStmt.setString(2, cname);
 	            pStmt.setString(3, cbirthd);
-	            pStmt.setString(4, cpass);
+	            String source = convertPass(cpass) ;
+	            pStmt.setString(4, source);
 //	            pStmt.setString(5, ccdate);
 //	            pStmt.setString(6, cupdate);
 	            int rs = pStmt.executeUpdate();
@@ -194,7 +203,8 @@ public class UserDao {
             pStmt.setString(1, updlogid);
             pStmt.setString(2, updname);
             pStmt.setString(3, updbirthd);
-            pStmt.setString(4, updpass);
+            String source = convertPass(updpass) ;
+            pStmt.setString(4, source);
             pStmt.setString(5, upid);
             int rs = pStmt.executeUpdate();
 
@@ -301,4 +311,23 @@ public class UserDao {
 		        }
 		        return userlist;
 		    }
-}
+
+	 public String convertPass(String pass) {
+			 //ハッシュ生成前にバイト配列に置き換える際のCharset
+			 Charset charset = StandardCharsets.UTF_8;
+			 //ハッシュアルゴリズム
+			 String algorithm = "MD5";
+
+			 //ハッシュ生成処理
+			 byte[] bytes = {};
+			try {
+				bytes = MessageDigest.getInstance(algorithm).digest(pass.getBytes(charset));
+			} catch (NoSuchAlgorithmException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+			 String result = DatatypeConverter.printHexBinary(bytes);
+			 //標準出力
+			return result;
+	 }
+	 }

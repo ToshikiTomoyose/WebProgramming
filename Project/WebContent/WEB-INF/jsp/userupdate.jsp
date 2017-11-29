@@ -27,8 +27,9 @@
          <body>
             <body style="font-family: 'ＭＳ 明朝'">
                 <section>
-                    <div class="text-right">ユーザ名&nbsp;&nbsp;
-                        <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p>
+                    <%Userbean u =(Userbean)session.getAttribute("ub"); %>
+                <div class="text-right">ユーザ名 <%= u.getName() %> &nbsp;&nbsp;
+                        <p><a href="Logout">ログアウト&nbsp;&nbsp;<br></a></p>
                     </div>
                 </section>
 
@@ -38,7 +39,7 @@
 
                     <h1 class="text-center">ユーザ情報更新</h1>
                     <p align="center">&nbsp;</p>
-                    <p align = "center">${errMsg}</p>
+                    <p align = "center" ><font color="red">${errMsg}</font></p>
 
 					<input type="hidden" value="<%= ub.getId() %>" name = "upid">
 
@@ -47,11 +48,11 @@
                     <p class="form-control-static static-padding">
 
                     <dt>&nbsp;パスワード</dt>
-                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "updpass">
+                        &nbsp;<input type="text" value="" name = "updpass">
                     <p class="form-control-static static-padding">
 
                     <dt>&nbsp;パスワード（確認）</dt>
-                        &nbsp;<input type="text" value="<%= ub.getPass() %>" name = "cupdpass">
+                        &nbsp;<input type="text" value="" name = "cupdpass">
                     <p class="form-control-static static-padding">
 
                     <dt>&nbsp;ユーザ名</dt>

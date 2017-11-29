@@ -19,8 +19,9 @@
         <body style="font-family: 'ＭＳ 明朝'">
 
             <section>
-                <div class="text-right">ユーザ名&nbsp;&nbsp;
-                    <p><a href="login.html">ログアウト&nbsp;&nbsp;<br></a></p>
+                <%Userbean u =(Userbean)session.getAttribute("ub"); %>
+                <div class="text-right">ユーザ名 <%= u.getName() %> &nbsp;&nbsp;
+                    <p><a href="Logout">ログアウト&nbsp;&nbsp;<br></a></p>
                 </div>
             </section>
 

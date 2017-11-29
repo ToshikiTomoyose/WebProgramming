@@ -51,19 +51,26 @@ public class Usercreate extends HttpServlet {
 		String subpass = request.getParameter("conpass");
 		String createdate = request.getParameter("ccdate");
 
-			if(pass.equals(subpass)) {
-				UserDao dao = new UserDao();
-				 dao.Usercreate(logid, name,  birthdate, pass, createdate);
-				 response.sendRedirect("UserList");
-			}else {
-				String msg = "エラー！";
-				request.setAttribute("errMsg", msg);
-				 RequestDispatcher dispatcher =
+		if(pass.equals(subpass)) {
+			UserDao dao = new UserDao();
+			dao.Usercreate(logid, name,  birthdate, pass, createdate);
+		 response.sendRedirect("UserList");
+//				}else if (logid == null || logid.equals("") || name == null || name.equals("")|| birthdate == null || pass == null || subpass == null || createdate == null || pass && subpass == false){
+//					String msg = "入力された内容は正しくありません";
+//					request.setAttribute("errMsg", msg);
+				}else {
+					String nullmsg = "入力された内容は正しくありません";
+					request.setAttribute("errMsg", nullmsg);
+					RequestDispatcher dispatcher =
 							request.getRequestDispatcher("/WEB-INF/jsp/usercreate.jsp");
-							 dispatcher.forward(request, response);
-
-
+							dispatcher.forward(request, response);
 			}
-	}
+
+//		 if ( logid == null || logid.equals("") || name == null || name.equals("")|| birthdate == null || pass == null || subpass == null || createdate == null) {
+//				String nullmsg = "入力された内容は正しくありません";
+//				request.setAttribute("errMsg", nullmsg);
+//				 response.sendRedirect("Usercreate");
+//			}
+		}
 
 }

@@ -49,31 +49,32 @@ public class UserUpdate extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		UserDao dao = new UserDao();
+		// TODO Auto-generated method stub
+				request.setCharacterEncoding("UTF-8");
+				UserDao dao = new UserDao();
 
 
-		String logid = request.getParameter("updlogid");
-		String name = request.getParameter("updname");
-		String birthdate = request.getParameter("updbirthd");
-		String pass = request.getParameter("updpass");
-		String cpass = request.getParameter("cupdpass");
-		String update = request.getParameter("upddate");
-		String id =  request.getParameter("upid");
+				String logid = request.getParameter("updlogid");
+				String name = request.getParameter("updname");
+				String birthdate = request.getParameter("updbirthd");
+				String pass = request.getParameter("updpass");
+				String cpass = request.getParameter("cupdpass");
+				String update = request.getParameter("upddate");
+				String id =  request.getParameter("upid");
 
-		if(pass.equals(cpass)) {
-			dao.UserUpdate(logid, name,  birthdate, pass, update, id);
-			response.sendRedirect("UserList");
+				if(pass.equals(cpass)) {
+					dao.UserUpdate(logid, name,  birthdate, pass, update, id);
+					response.sendRedirect("UserList");
 
-			}else {
-				Userbean ub = dao.findByUserGuide(id);
-				request.setAttribute("ub", ub);
-				String msg = "エラー！";
-				request.setAttribute("errMsg", msg);
-				RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
-				dispatcher.forward(request, response);
+					}else {
+						Userbean ub = dao.findByUserGuide(id);
+						request.setAttribute("ub", ub);
+						String msg = "入力された内容は正しくありません";
+						request.setAttribute("errMsg", msg);
+						RequestDispatcher dispatcher =
+						request.getRequestDispatcher("/WEB-INF/jsp/userupdate.jsp");
+						dispatcher.forward(request, response);
 
-				}
-	}
+						}
+			}
 }
