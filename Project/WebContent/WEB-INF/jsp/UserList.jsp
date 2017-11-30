@@ -26,10 +26,10 @@
         <body style="font-family: 'ＭＳ 明朝'">
 
             <section>
-            <%List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");%>
-			<%Userbean u =(Userbean)session.getAttribute("ub"); %>
-                <div class="text-right">ユーザ名 <%=u.getName() %> &nbsp;&nbsp;
-                <p><a href="Logout">ログアウト&nbsp;&nbsp;<br></a></p></div>
+	            <%List<Userbean> ublist = (List<Userbean>)request.getAttribute("userlist");%>
+				<%Userbean u =(Userbean)session.getAttribute("ub"); %>
+	                <div class="text-right">ユーザ名 <%=u.getName() %> &nbsp;&nbsp;
+	                <p><a href="Logout">ログアウト&nbsp;&nbsp;<br></a></p></div>
             </section>
 
             <div align="right"> <a href="Usercreate">新規登録&nbsp;&nbsp;</a></div>
@@ -62,23 +62,37 @@
                         </thead>
 
 
+							<% for (Userbean userbean : ublist) {%>
+	                            <tbody>
+		                         <tr>
+	                               <td><%= userbean.getLogin_id() %></td>
+	                                <td><%= userbean.getName() %></td>
+	                                <td><%= userbean.getBirth_date()%></td>
+	                                <td>
+	                                    <div align="center">
 
-						<% for (Userbean userbean : ublist) {%>
-                            <tbody>
-	                         <tr>
-                               <td><%= userbean.getLogin_id() %></td>
-                                <td><%= userbean.getName() %></td>
-                                <td><%= userbean.getBirth_date()%></td>
-                                <td>
-                                    <div align="center">
-                                        <a class="btn btn-info" href="Userguide?id=<%= userbean.getId() %>">詳細</a>
-                                        <a class="btn btn-primary" href="UserUpdate?id=<%= userbean.getId() %>">更新</a>
-                                        <a class="btn btn-danger" href="UserDelete?id=<%= userbean.getId() %>">削除</a>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-						<%} %>
+	                                    	<% if ( u.getId().equals("1") )  { %>
+												<a class = "hidden" href="Userguide?id=<%= userbean.getId().equals("1") %>"></a>
+		                                        <a class="hidden" href="UserUpdate?id=<%= userbean.getId().equals("1") %>"></a>
+		                                        <a class="hidden" href="UserDelete?id=<%= userbean.getId().equals("1") %>"></a>
+												<a class="btn btn-info" href="Userguide?id=<%= userbean.getId() %>">詳細</a>
+		                                        <a class="btn btn-primary" href="UserUpdate?id=<%= userbean.getId() %>">更新</a>
+		                                        <a class="btn btn-danger" href="UserDelete?id=<%= userbean.getId() %>">削除</a>
+
+	                                        <% }else{ %>
+	                                        <a class="btn btn-info" href="Userguide?id=<%= userbean.getId() %>">詳細</a>
+		                                        <% if ( userbean.getId().equals(u.getId()) )  { %>
+
+		                                        <a class="btn btn-primary" href="UserUpdate?id=<%= userbean.getId() %>">更新</a>
+		                                        <%}%>
+
+											<%}%>
+
+	                                    </div>
+	                                </td>
+	                            </tr>
+	                        </tbody>
+						<%}%>
                     </table>
                 </div>
             </div>

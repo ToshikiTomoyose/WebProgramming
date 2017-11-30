@@ -81,9 +81,11 @@ public class UserDao {
 	            ResultSet rs = pStmt.executeQuery();
 
 	            while (rs.next()) {
+	            	String id = rs.getString("id");
 	                String login_id = rs.getString("login_id");
 	                String password = rs.getString("password");
 	                String name = rs.getString("name");
+	                userbean.setId(id);
 	                userbean.setLogin_id(login_id);
 	                userbean.setPass(password);
 	                userbean.setName(name);

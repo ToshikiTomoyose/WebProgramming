@@ -40,10 +40,10 @@
                 <input type="text" name="clogid"></p>
 
                 <p class="text-center">パスワード　　　　　
-                <input type="text" name="cpass"></p>
+                <input type="password" name="cpass"></p>
 
                 <p class="text-center">パスワード（確認）　
-                <input type="text" name="conpass"></p>
+                <input type="password" name="conpass"></p>
 
                 <p class="text-center">ユーザー名　　　　　
                 <input type="text" name="cname"></p>

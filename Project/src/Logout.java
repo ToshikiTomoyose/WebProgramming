@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -31,14 +30,13 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
+		HttpSession session = request.getSession();
+		session.removeAttribute("ub");
 		String msg = "ログアウトしました。";
 		request.setAttribute("logout", msg);
 		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
-				dispatcher.forward(request, response);
-		HttpSession session = request.getSession();
-		session.removeAttribute("ub");
-		response.sendRedirect("Login");
+			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
 
 	}
 

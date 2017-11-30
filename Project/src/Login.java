@@ -56,7 +56,7 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if(ub == null) {
-			String msg = "入力されたIDまたはパスワードが異なります。";
+			String msg = "IDまたはパスワードが異なります。";
 			request.setAttribute("errMsg", msg);
 
 			RequestDispatcher dispatcher =
